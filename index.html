@@ -7,27 +7,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>下载</title>
 </head>
-    
+
 <body>
-    <a href="" id="linkDow">点击下载</a>
     <script language="javascript">
-        window.onload = function () {
-            var $dow = document.getElementById("linkDow")
-            var u = navigator.userAgent;
-            if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {//安卓手机
-                alert("安卓手机");
-                // window.location.href = "mobile/index.html";
-            } else if (u.indexOf('iPhone') > -1) {//苹果手机
-                // window.location.href = "mobile/index.html";
-                alert("苹果手机");
-                $dow.setAttribute("href","./download/chrome.exe")
-            } else if (u.indexOf('Windows Phone') > -1) {//winphone手机
-                alert("winphone手机");
-                // window.location.href = "mobile/index.html";
-            }else {
-                alert("pc")
-            }
+        var androidURL = "http://xypf.csu.edu.cn:8089/imgs/download/ylt.apk";
+
+        var browser = {
+            versions: function () {
+                var u = navigator.userAgent,
+                    app = navigator.appVersion;
+                return {
+
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+
+                    iPhone: u.indexOf('iPhone') > -1,
+
+                    iPad: u.indexOf('iPad') > -1,
+                    iPod: u.indexOf('iPod') > -1,
+
+                };
+            }(),
+            language: (navigator.browserLanguage || navigator.language).toLowerCase()
         }
+        if (browser.versions.iPhone || browser.versions.iPad || browser.versions.iPod) {
+            window.location.href = "itms-apps:https://itunes.apple.com/cn/app/%E9%9B%85%E8%82%A4%E6%82%A3%E8%80%85%E7%AB%AF/id1434014330?mt=8";
+        }
+        else if (browser.versions.android) {
+            window.location.href = androidURL;
+        } 
     </script>
 </body>
 

@@ -7,21 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>下载</title>
 </head>
-
+    <div class=".layout">
+        <span>医生端</span>
+        <span>患者端</span>
+    </div>
 <body>
     <script language="javascript">
-        var androidURL = "http://xypf.csu.edu.cn:8089/imgs/download/ylt.apk";
-
+        var androidURL = {
+            ys:"http://xypf.csu.edu.cn:8089/imgs/download/ylt.apk",
+            hz:"http://xypf.csu.edu.cn:8089/imgs/download/hzylt.apk"
+        };
+        var iosURL = {
+            hz:"https://itunes.apple.com/cn/app/%E9%9B%85%E8%82%A4%E6%82%A3%E8%80%85%E7%AB%AF/id1434014330?mt=8",
+            ys:"https://itunes.apple.com/cn/app/%E9%9B%85%E8%82%A4%E5%8C%BB%E7%94%9F%E7%AB%AF/id1418321079?mt=8"
+        }
         var browser = {
             versions: function () {
                 var u = navigator.userAgent,
                     app = navigator.appVersion;
                 return {
-
                     android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
-
                     iPhone: u.indexOf('iPhone') > -1,
-
                     iPad: u.indexOf('iPad') > -1,
                     iPod: u.indexOf('iPod') > -1,
 
